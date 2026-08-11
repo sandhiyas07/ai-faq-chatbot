@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CampusBot | College FAQ Assistant</title>
+
+  <!-- Google Fonts: a serif display face for the academic feel + a clean sans body face -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Background watermark / academic seal texture -->
+  <div class="bg-seal" aria-hidden="true">§</div>
+
+  <div class="app-shell">
+
+    <!-- ===================== CHATBOT CARD ===================== -->
+    <main class="chat-card" role="main">
+
+      <!-- ---------- HEADER ---------- -->
+      <header class="chat-header">
+        <div class="bot-identity">
+          <div class="bot-avatar" aria-hidden="true">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="24" cy="24" r="24" fill="#1B2A4A"/>
+              <rect x="14" y="17" width="20" height="15" rx="4" fill="#F4B942"/>
+              <circle cx="19.5" cy="24.5" r="2.2" fill="#1B2A4A"/>
+              <circle cx="28.5" cy="24.5" r="2.2" fill="#1B2A4A"/>
+              <rect x="22.5" y="10" width="3" height="7" rx="1.5" fill="#F4B942"/>
+              <circle cx="24" cy="9" r="2" fill="#F4B942"/>
+            </svg>
+          </div>
+          <div class="bot-text">
+            <h1>CampusBot</h1>
+            <p class="status">
+              <span class="status-dot" aria-hidden="true"></span>
+              Online &middot; Your College FAQ Assistant
+            </p>
+          </div>
+        </div>
+        <button id="clearChatBtn" class="clear-btn" type="button" title="Clear conversation">
+          Clear Chat
+        </button>
+      </header>
+
+      <!-- ---------- CATEGORY STRIP ---------- -->
+      <nav class="category-strip" aria-label="FAQ categories">
+        <span class="category-chip" data-category="all">All</span>
+        <span class="category-chip" data-category="college">College/University</span>
+        <span class="category-chip" data-category="courses">Courses</span>
+        <span class="category-chip" data-category="admission">Admission</span>
+        <span class="category-chip" data-category="fees">Fees</span>
+        <span class="category-chip" data-category="exams">Exams</span>
+        <span class="category-chip" data-category="timetable">Timetable</span>
+        <span class="category-chip" data-category="general">General</span>
+      </nav>
+
+      <!-- ---------- CHAT MESSAGE AREA ---------- -->
+      <section id="chatArea" class="chat-area" aria-live="polite">
+        <!-- Messages are injected here dynamically by script.js -->
+      </section>
+
+      <!-- ---------- TYPING INDICATOR (hidden by default) ---------- -->
+      <div id="typingIndicator" class="typing-row hidden" aria-hidden="true">
+        <div class="msg-avatar bot-avatar-sm">
+          <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="24" cy="24" r="24" fill="#1B2A4A"/>
+            <rect x="14" y="17" width="20" height="15" rx="4" fill="#F4B942"/>
+          </svg>
+        </div>
+        <div class="typing-bubble">
+          <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+        </div>
+      </div>
+
+      <!-- ---------- SUGGESTED QUESTIONS ---------- -->
+      <div id="suggestedArea" class="suggested-area">
+        <p class="suggested-label">Try asking:</p>
+        <div id="suggestedList" class="suggested-list">
+          <!-- Suggested question chips injected by script.js -->
+        </div>
+      </div>
+
+      <!-- ---------- INPUT AREA ---------- -->
+      <form id="chatForm" class="chat-input-area" autocomplete="off">
+        <input
+          id="userInput"
+          type="text"
+          placeholder="Ask about admissions, fees, exams, courses..."
+          aria-label="Type your question"
+          maxlength="200"
+        />
+        <button type="submit" id="sendBtn" class="send-btn" title="Send message">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M3 11.5L21 3L14.5 21L11 13L3 11.5Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"/>
+          </svg>
+          <span>Send</span>
+        </button>
+      </form>
+
+      <p class="input-hint">Press <kbd>Enter</kbd> to send &middot; Answers are generated from our FAQ knowledge base</p>
+    </main>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
