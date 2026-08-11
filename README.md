@@ -78,6 +78,9 @@ The chatbot can contain questions related to:
 3. The application compares the question with the available FAQ data.
 4. The most relevant answer is displayed.
 5. If no matching question is found, the chatbot displays a helpful fallback message.
+   
+   <img width="1920" height="1080" alt="Screenshot (11)" src="https://github.com/user-attachments/assets/5382d463-9ee1-4ad8-90d5-65c0ff3b3147" />
+
 
 ## 🔮 Future Enhancements
 
